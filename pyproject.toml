@@ -1,0 +1,33 @@
+[project]
+name = "lore-rag"
+version = "0.1.0"
+description = "Secure RAG system for operational knowledge management"
+authors = [
+    {name = "Seu Nome", email = "seu@email.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "sqlalchemy>=2.1.4",
+    "psycopg2-binary>=2.9.13",
+    "pydantic-settings>=2.13.1",
+    "python-multipart>=0.0.32",
+    "httpx>=0.25.2",
+    "qdrant-client>=1.19.1",
+    "numpy>=2.4.2",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]

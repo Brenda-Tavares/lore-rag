@@ -1,0 +1,21 @@
+
+**Arquivo: `SECURITY.md`**
+```markdown
+# Security Policy
+
+## Reporting a Vulnerability
+
+The **Lore** project takes security seriously, especially given its focus on LLM security and operational data.
+
+If you discover a security vulnerability within this project, please send an e-mail to [SEU_EMAIL_AQUI]. All security vulnerabilities will be promptly addressed.
+
+Please do **not** create a public GitHub issue for security vulnerabilities.
+
+## Security Measures Implemented
+
+This project implements controls based on the **OWASP Top 10 for LLM Applications**:
+
+1.  **Prompt Injection:** Retrieved documents are treated as untrusted data.
+2.  **Sensitive Information Disclosure:** Automated redaction of secrets before LLM context assembly.
+3.  **Supply Chain:** Dependencies are pinned and scanned.
+4.  **Excessive Agency:** The system is strictly read-only.
