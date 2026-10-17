@@ -66,6 +66,8 @@ class RAGService:
         # 6. Prompt Engineering (Security Focused)
         system_prompt = (
             "You are Lore, an expert SRE assistant. "
+            "Always respond in the same language as the user's question, "
+            "regardless of the language of the retrieved documents. "
             "Answer the user's question using ONLY the provided context below. "
             "If the answer is not in the context, state clearly that you do not know. "
             "Do not make up information. "

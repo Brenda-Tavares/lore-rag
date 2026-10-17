@@ -110,12 +110,21 @@ never included in exception tracebacks returned to the client.
 
 **What it does:** The LLM is instructed, via the system prompt, to answer **only** from
 the retrieved context and to refuse when the context is insufficient. Every response
-returns the chunks that grounded it.
+returns the chunks that grounded it. The system prompt also instructs the model to
+respond in the same language as the user's question, regardless of the language of
+the retrieved documents — so a PT/EN/ZH UI produces answers in the matching language
+even when the corpus is in a single language.
 
 **Why this matters for security:** An unauditable answer is an injection vector — a
 model answering from memory can be steered into disclosing system-prompt content or
 fabricating commands. A cited answer lets a human verify, in seconds, whether the
 answer is grounded or hallucinated.
+
+**Honest limit (language):** The language-matching instruction works reliably for
+high-resource languages (Portuguese, English, Simplified Chinese). For low-resource
+languages or very short queries (1–2 words with no language signal), the model may
+fall back to the dominant language of the retrieved context. This is a prompt-level
+control, not a language detection system.
 
 ### 2.7 External API bounds
 
